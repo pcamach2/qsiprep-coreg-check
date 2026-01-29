@@ -1,0 +1,11 @@
+Bootstrap: docker
+From: python:3.11-slim
+
+%files
+    coregistration_svg.py /opt/coregistration_svg.py
+
+%post
+    pip install numpy nibabel scipy pillow matplotlib
+
+%runscript
+    python /opt/coregistration_svg.py "$@"
